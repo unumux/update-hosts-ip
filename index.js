@@ -28,7 +28,8 @@ function getIP(vmname) {
   exec('prlctl exec "' + vmname + '" ipconfig', function(error, stdout, stderr) {
     var adapterSection = stdout.slice(stdout.indexOf("Ethernet adapter Local Area Connection:"));
     var ip = adapterSection.match(/IPv4 Address[^:]*:(.*)/)[1].trim();
-    sudo.exec('/usr/bin/env node set-ip.js ' + ip, options, function(error, stdout, stderr) {
+    var setIPPath = path.join(__dirname, 'set-ip.js');
+    sudo.exec('/usr/bin/env node ' + setIPPath + ' ' + ip, options, function(error, stdout, stderr) {
       console.log(error || stdout || stderr);
     });
   });
