@@ -10,12 +10,19 @@ var options = {
 };
 
 exec("prlctl list --no-header -o name", function(err, stdout, stderr) {
+  var choices = stdout.split('\n').filter(function(line) { return line.trim().length > 0 });
+
+  if(choices.length === 0) {
+      console.log("No running VMs could be found!")
+      process.exit();
+  }
+
   inquirer.prompt([
     {
       type: 'list',
       name: 'vmname',
       message: "Choose VM",
-      choices: stdout.split('\n').filter(function(line) { return line.trim().length > 0 })
+      choices: choices
     }
   ], function(answers) {
     getIP(answers.vmname);
