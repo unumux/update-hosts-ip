@@ -15,5 +15,10 @@
   },
   "bin": {
     "uxip": "index.js"
+  },
+  "devDependencies": {
+    "@unumux/eslint-config-unumux": "^1.0.1",
+    "babel-eslint": "^5.0.0",
+    "eslint": "^2.2.0"
   }
 }
