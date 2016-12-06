@@ -11,7 +11,7 @@
   "dependencies": {
     "hostile": "^1.0.2",
     "inquirer": "^0.11.0",
-    "sudo-prompt": "^2.1.0"
+    "sudo-prompt": "^6.2.0"
   },
   "bin": {
     "uxip": "index.js"
